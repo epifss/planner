@@ -20,16 +20,10 @@ public class Trip {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private UUID ID;
+    private UUID Id;
 
     @Column(nullable = false)
     private String destination;
-
-    @Column(name="starts_at", nullable = false)
-    private LocalDateTime startsAt;
-
-    @Column(name="ends_at", nullable = false)
-    private LocalDateTime endsAt;
 
     @Column(name="is_confirmed", nullable = false)
     private boolean isConfirmed;
@@ -39,6 +33,12 @@ public class Trip {
 
     @Column(name="owner_email",nullable = false)
     private String ownerEmail;
+
+    @Column(name="starts_at", nullable = false)
+    private LocalDateTime startsAt;
+
+    @Column(name="ends_at", nullable = false)
+    private LocalDateTime endsAt;
 
     public Trip(TripRequestPayload data) {
         this.destination = data.destination();
