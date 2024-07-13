@@ -1,34 +1,79 @@
-# Travel Planning System
+# Planejador de Viagens
 
-Este é um sistema de planejamento de viagens desenvolvido em Java e Spring Boot.
-
-## Tecnologias Utilizadas
-
-- Java
-- Spring Boot
-- Spring Web
-- Flyway
-- Spring Boot Dev Tools
-- Lombok
-- Spring Data JPA
-- H2 Database
-
-## Configuração do Banco de Dados
-
-O banco de dados H2 é configurado na aplicação. As migrações de banco de dados são gerenciadas pelo Flyway.
+Este projeto é uma aplicação de planejamento de viagens desenvolvida em Java usando o Spring Boot. A aplicação permite o gerenciamento de viagens, participantes, atividades e links relacionados a uma viagem.
 
 ## Funcionalidades
 
-### Viagem
+- Cadastro de viagens
+- Consulta de viagens
+- Atualização de viagens
+- Confirmação de viagens
+- Gerenciamento de participantes
+- Gerenciamento de atividades
+- Gerenciamento de links
 
-- **Criar Viagem**: `POST /trips`
-- **Consultar Viagem**: `GET /trips/{tripId}`
-- **Atualizar Viagem**: `PUT /trips/{tripId}`
-- **Confirmar Viagem**: `GET /trips/{tripId}/confirm`
+## Tecnologias Utilizadas
+
+- Spring Boot
+  - Spring Web
+  - Spring Data JPA
+  - Spring Dev Tools
+- Flyway
+- Lombok
+- H2 Database
+
+## Migrations
+
+O Flyway é usado para gerenciar a versão do banco de dados. As migrations são armazenadas no diretório `src/main/resources/db/migration`.
+
+## Endpoints
+
+### Viagens
+
+- **Cadastro de viagem**
+  - **POST** `/trips`
+  
+- **Consulta de viagem**
+  - **GET** `/trips/{tripId}`
+  
+- **Atualização de viagem**
+  - **PUT** `/trips/{tripId}`
+  
+- **Confirmação de viagem**
+  - **GET** `/trips/{tripId}/confirm`
 
 ### Participantes
 
-- **Criar Participante**: `POST /participants`
-- **Confirmar Participante**: `POST /participants/{participantId}/confirm`
-- **Convidar Participante**: `POST /trips/{tripId}/invites`
-- **Consultar Participantes**: `GET /trips/{tripId}/participants`
+- **Cadastro de participante**
+  - **POST** `/participants`
+  
+- **Confirmação de participante**
+  - **POST** `/participants/{participantId}/confirm`
+  
+- **Convite de participante**
+  - **POST** `/trips/{tripId}/invites`
+  
+- **Consulta de participantes**
+  - **GET** `/trips/{tripId}/participants`
+
+### Atividades
+
+- **Cadastro de atividade**
+  - **POST** `/trips/{tripId}/activities`
+  
+- **Consulta de atividades**
+  - **GET** `/trips/{tripId}/activities`
+
+### Links
+
+- **Criação de link**
+  - **POST** `/trips/{tripId}/links`
+  
+- **Consulta de links**
+  - **GET** `/trips/{tripId}/links`
+
+## Estrutura do Projeto
+
+- `src/main/java`: Código fonte da aplicação
+- `src/main/resources`: Arquivos de configuração e migrations
+
